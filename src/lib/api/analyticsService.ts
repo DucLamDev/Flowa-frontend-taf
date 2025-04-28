@@ -7,7 +7,7 @@ interface DateRange {
 
 export const analyticsService = {
   getContentPerformance: async (brandId: string, dateRange?: DateRange) => {
-    let url = `/analytics/content-performance/${brandId}`;
+    let url = `/api/analytics/content-performance/${brandId}`;
     if (dateRange) {
       url += `?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}`;
     }
@@ -16,7 +16,7 @@ export const analyticsService = {
   },
 
   getSocialMediaPerformance: async (brandId: string, platform?: string, dateRange?: DateRange) => {
-    let url = `/analytics/social-performance/${brandId}`;
+    let url = `/api/analytics/social-performance/${brandId}`;
     const params = [];
     if (platform) params.push(`platform=${platform}`);
     if (dateRange) {
@@ -31,12 +31,12 @@ export const analyticsService = {
   },
 
   getContentAnalysis: async (contentId: string) => {
-    const response = await axiosInstance.get(`/analytics/content-analysis/${contentId}`);
+    const response = await axiosInstance.get(`/api/analytics/content-analysis/${contentId}`);
     return response.data;
   },
 
   getImprovementSuggestions: async (brandId: string, contentType?: string) => {
-    let url = `/analytics/improvement-suggestions/${brandId}`;
+    let url = `/api/analytics/improvement-suggestions/${brandId}`;
     if (contentType) {
       url += `?contentType=${contentType}`;
     }
@@ -45,7 +45,7 @@ export const analyticsService = {
   },
 
   getEngagementMetrics: async (brandId: string, dateRange?: DateRange) => {
-    let url = `/analytics/engagement/${brandId}`;
+    let url = `/api/analytics/engagement/${brandId}`;
     if (dateRange) {
       url += `?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}`;
     }
@@ -54,7 +54,7 @@ export const analyticsService = {
   },
 
   getAudienceInsights: async (brandId: string) => {
-    const response = await axiosInstance.get(`/analytics/audience/${brandId}`);
+    const response = await axiosInstance.get(`/api/analytics/audience/${brandId}`);
     return response.data;
   },
 };

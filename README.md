@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FLOWA-TAF-FRONTEND
 
-## Getting Started
+## Giới thiệu
 
-First, run the development server:
+Đây là dự án frontend cho nền tảng Flowa TAF, được phát triển bằng [Next.js](https://nextjs.org) và được khởi tạo với [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). Hệ thống cung cấp giao diện quản lý và theo dõi cho các sản phẩm, thương hiệu, nội dung và tích hợp mạng xã hội.
+
+## Công nghệ sử dụng
+
+- **Next.js 14**: Framework React với server-side rendering và định tuyến
+- **React 18**: Thư viện UI
+- **TypeScript**: Ngôn ngữ lập trình mạnh mẽ với kiểu dữ liệu tĩnh
+- **TailwindCSS**: Framework CSS tiện ích
+- **React Query**: Quản lý trạng thái và data fetching
+- **Formik & Yup**: Xử lý form và validation
+- **Recharts**: Thư viện biểu đồ dữ liệu
+- **Axios**: Thư viện HTTP client
+
+## Cài đặt và chạy dự án
+
+### Yêu cầu hệ thống
+
+- Node.js 18.x hoặc cao hơn
+- npm hoặc yarn hoặc pnpm
+
+### Các bước cài đặt
+
+1. Clone dự án:
+
+```bash
+git clone <đường-dẫn-repository>
+cd flowa-taf-frontend
+```
+
+2. Cài đặt các dependency:
+
+```bash
+npm install
+# hoặc
+yarn install
+# hoặc
+pnpm install
+```
+
+3. Chạy môi trường phát triển:
 
 ```bash
 npm run dev
-# or
+# hoặc
 yarn dev
-# or
+# hoặc
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Mở [http://localhost:3000](http://localhost:3000) trên trình duyệt để xem kết quả.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Cấu trúc dự án
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `/app`: Chứa các components và trang của ứng dụng
+  - `/components`: Các component được tái sử dụng
+  - `/dashboard`: Các trang dashboard cho quản lý sản phẩm, thương hiệu và nội dung
+  - `/auth`: Các trang xác thực (đăng nhập, đăng ký)
+  - `/lib`: Các tiện ích và hàm hỗ trợ
+- `/public`: Chứa tài nguyên tĩnh (hình ảnh, fonts,...)
 
-## Learn More
+## Triển khai
 
-To learn more about Next.js, take a look at the following resources:
+Dự án được cấu hình để triển khai dễ dàng trên Vercel:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Đẩy code lên repository GitHub, GitLab hoặc Bitbucket
+2. Import dự án vào Vercel: https://vercel.com/new
+3. Cấu hình các biến môi trường trong Vercel:
+   - `NEXT_PUBLIC_API_URL`: URL của API backend
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. Vercel sẽ tự động phát hiện dự án Next.js và cấu hình đúng cách.
 
-## Deploy on Vercel
+### Triển khai thủ công
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Bạn cũng có thể triển khai thủ công bằng Vercel CLI:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+# Cài đặt Vercel CLI
+npm install -g vercel
+
+# Đăng nhập vào Vercel
+vercel login
+
+# Triển khai
+vercel
+```
+
+## Phát triển
+
+Bạn có thể bắt đầu chỉnh sửa trang bằng cách sửa đổi các file trong thư mục `app`. Trang sẽ tự động cập nhật khi bạn chỉnh sửa file.
+
+## Tài liệu tham khảo
+
+- [Tài liệu Next.js](https://nextjs.org/docs) - tìm hiểu về các tính năng và API của Next.js
+- [Học Next.js](https://nextjs.org/learn) - hướng dẫn tương tác về Next.js
+
+## Liên hệ và hỗ trợ
+
+Nếu bạn có bất kỳ câu hỏi hoặc gặp vấn đề nào, vui lòng liên hệ với team phát triển hoặc tạo issue trong repository của dự án.
+
+---
+
+&copy; 2023-2024 Flowa TAF. Bản quyền được bảo lưu.

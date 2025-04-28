@@ -12,27 +12,27 @@ interface BrandData {
 
 export const brandService = {
   createBrand: async (brandData: BrandData) => {
-    const response = await axiosInstance.post('/brands', brandData);
+    const response = await axiosInstance.post('/api/brands', brandData);
     return response.data;
   },
 
   getBrands: async () => {
-    const response = await axiosInstance.get('/brands');
+    const response = await axiosInstance.get('/api/brands');
     return response.data;
   },
 
   getBrandById: async (brandId: string) => {
-    const response = await axiosInstance.get(`/brands/${brandId}`);
+    const response = await axiosInstance.get(`/api/brands/${brandId}`);
     return response.data;
   },
 
   updateBrand: async (brandId: string, brandData: Partial<BrandData>) => {
-    const response = await axiosInstance.put(`/brands/${brandId}`, brandData);
+    const response = await axiosInstance.put(`/api/brands/${brandId}`, brandData);
     return response.data;
   },
 
   deleteBrand: async (brandId: string) => {
-    const response = await axiosInstance.delete(`/brands/${brandId}`);
+    const response = await axiosInstance.delete(`/api/brands/${brandId}`);
     return response.data;
   },
 
@@ -40,7 +40,7 @@ export const brandService = {
     const formData = new FormData();
     formData.append('logo', logoFile);
     
-    const response = await axiosInstance.post(`/brands/${brandId}/logo`, formData, {
+    const response = await axiosInstance.post(`/api/brands/${brandId}/logo`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -54,7 +54,7 @@ export const brandService = {
       formData.append('images', file);
     });
     
-    const response = await axiosInstance.post(`/brands/${brandId}/images`, formData, {
+    const response = await axiosInstance.post(`/api/brands/${brandId}/images`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },

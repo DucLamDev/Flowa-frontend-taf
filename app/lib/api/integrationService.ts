@@ -50,61 +50,61 @@ interface IntegrationUpdateData {
 export const integrationService = {
   // Lấy danh sách tất cả tích hợp
   getAllIntegrations: async () => {
-    const response = await axiosInstance.get('/integrations');
+    const response = await axiosInstance.get('/api/integrations');
     return response.data;
   },
 
   // Lấy chi tiết một tích hợp theo ID
   getIntegrationById: async (id: string) => {
-    const response = await axiosInstance.get(`/integrations/${id}`);
+    const response = await axiosInstance.get(`/api/integrations/${id}`);
     return response.data;
   },
 
   // Tạo tích hợp mới
   createIntegration: async (data: IntegrationCreateData) => {
-    const response = await axiosInstance.post('/integrations', data);
+    const response = await axiosInstance.post('/api/integrations', data);
     return response.data;
   },
 
   // Cập nhật tích hợp
   updateIntegration: async (id: string, data: IntegrationUpdateData) => {
-    const response = await axiosInstance.put(`/integrations/${id}`, data);
+    const response = await axiosInstance.put(`/api/integrations/${id}`, data);
     return response.data;
   },
 
   // Xóa tích hợp
   deleteIntegration: async (id: string) => {
-    const response = await axiosInstance.delete(`/integrations/${id}`);
+    const response = await axiosInstance.delete(`/api/integrations/${id}`);
     return response.data;
   },
 
   // Kích hoạt tích hợp
   activateIntegration: async (id: string) => {
-    const response = await axiosInstance.post(`/integrations/${id}/activate`);
+    const response = await axiosInstance.post(`/api/integrations/${id}/activate`);
     return response.data;
   },
 
   // Vô hiệu hóa tích hợp
   deactivateIntegration: async (id: string) => {
-    const response = await axiosInstance.post(`/integrations/${id}/deactivate`);
+    const response = await axiosInstance.post(`/api/integrations/${id}/deactivate`);
     return response.data;
   },
 
   // Kiểm tra trạng thái kết nối của tích hợp
   checkIntegrationStatus: async (id: string) => {
-    const response = await axiosInstance.get(`/integrations/${id}/status`);
+    const response = await axiosInstance.get(`/api/integrations/${id}/status`);
     return response.data;
   },
 
   // Đồng bộ dữ liệu từ tích hợp
   syncIntegrationData: async (id: string) => {
-    const response = await axiosInstance.post(`/integrations/${id}/sync`);
+    const response = await axiosInstance.post(`/api/integrations/${id}/sync`);
     return response.data;
   },
 
   // Lấy danh sách các loại tích hợp được hỗ trợ
   getSupportedIntegrationTypes: async () => {
-    const response = await axiosInstance.get('/integrations/types');
+    const response = await axiosInstance.get('/api/integrations/types');
     return response.data;
   }
 };

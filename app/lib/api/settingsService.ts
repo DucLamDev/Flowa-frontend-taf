@@ -75,43 +75,43 @@ interface UserSettings {
 export const settingsService = {
   // Lấy tất cả cài đặt của người dùng
   getUserSettings: async () => {
-    const response = await axiosInstance.get('/settings');
+    const response = await axiosInstance.get('/api/settings');
     return response.data;
   },
 
   // Cập nhật cài đặt chung
   updateGeneralSettings: async (settings: Partial<GeneralSettings>) => {
-    const response = await axiosInstance.put('/settings/general', settings);
+    const response = await axiosInstance.put('/api/settings/general', settings);
     return response.data;
   },
 
   // Cập nhật cài đặt thông báo
   updateNotificationSettings: async (settings: Partial<NotificationSettings>) => {
-    const response = await axiosInstance.put('/settings/notifications', settings);
+    const response = await axiosInstance.put('/api/settings/notifications', settings);
     return response.data;
   },
 
   // Cập nhật cài đặt quyền riêng tư
   updatePrivacySettings: async (settings: Partial<PrivacySettings>) => {
-    const response = await axiosInstance.put('/settings/privacy', settings);
+    const response = await axiosInstance.put('/api/settings/privacy', settings);
     return response.data;
   },
 
   // Cập nhật cài đặt API
   updateApiSettings: async (settings: Partial<ApiSettings>) => {
-    const response = await axiosInstance.put('/settings/api', settings);
+    const response = await axiosInstance.put('/api/settings/api', settings);
     return response.data;
   },
 
   // Tạo API key mới
   createApiKey: async (name: string, permissions: string[]) => {
-    const response = await axiosInstance.post('/settings/api/keys', { name, permissions });
+    const response = await axiosInstance.post('/api/settings/api/keys', { name, permissions });
     return response.data;
   },
 
   // Xóa API key
   deleteApiKey: async (keyId: string) => {
-    const response = await axiosInstance.delete(`/settings/api/keys/${keyId}`);
+    const response = await axiosInstance.delete(`/api/settings/api/keys/${keyId}`);
     return response.data;
   },
 
@@ -120,7 +120,7 @@ export const settingsService = {
     const formData = new FormData();
     formData.append('logo', logoFile);
     
-    const response = await axiosInstance.post('/settings/logo', formData, {
+    const response = await axiosInstance.post('/api/settings/logo', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -133,7 +133,7 @@ export const settingsService = {
     const formData = new FormData();
     formData.append('favicon', faviconFile);
     
-    const response = await axiosInstance.post('/settings/favicon', formData, {
+    const response = await axiosInstance.post('/api/settings/favicon', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -143,19 +143,19 @@ export const settingsService = {
 
   // Lấy danh sách múi giờ
   getTimezones: async () => {
-    const response = await axiosInstance.get('/settings/timezones');
+    const response = await axiosInstance.get('/api/settings/timezones');
     return response.data;
   },
 
   // Lấy danh sách ngôn ngữ được hỗ trợ
   getLanguages: async () => {
-    const response = await axiosInstance.get('/settings/languages');
+    const response = await axiosInstance.get('/api/settings/languages');
     return response.data;
   },
 
   // Xuất cài đặt
   exportSettings: async () => {
-    const response = await axiosInstance.get('/settings/export', {
+    const response = await axiosInstance.get('/api/settings/export', {
       responseType: 'blob',
     });
     return response.data;
@@ -166,7 +166,7 @@ export const settingsService = {
     const formData = new FormData();
     formData.append('settings', settingsFile);
     
-    const response = await axiosInstance.post('/settings/import', formData, {
+    const response = await axiosInstance.post('/api/settings/import', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -176,7 +176,7 @@ export const settingsService = {
 
   // Khôi phục cài đặt mặc định
   resetSettings: async () => {
-    const response = await axiosInstance.post('/settings/reset');
+    const response = await axiosInstance.post('/api/settings/reset');
     return response.data;
   }
 };

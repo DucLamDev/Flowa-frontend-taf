@@ -18,27 +18,27 @@ interface PostData {
 
 export const socialMediaService = {
   connectAccount: async (data: SocialAccountData) => {
-    const response = await axiosInstance.post('/social/connect', data);
+    const response = await axiosInstance.post('/api/social/connect', data);
     return response.data;
   },
 
   getAccounts: async (brandId: string) => {
-    const response = await axiosInstance.get(`/social/accounts/${brandId}`);
+    const response = await axiosInstance.get(`/api/social/accounts/${brandId}`);
     return response.data;
   },
 
   createPost: async (data: PostData) => {
-    const response = await axiosInstance.post('/social/post', data);
+    const response = await axiosInstance.post('/api/social/post', data);
     return response.data;
   },
 
   schedulePosts: async (posts: PostData[]) => {
-    const response = await axiosInstance.post('/social/schedule', { posts });
+    const response = await axiosInstance.post('/api/social/schedule', { posts });
     return response.data;
   },
 
   getPosts: async (brandId: string, platform?: string, status?: string) => {
-    let url = `/social/posts/${brandId}`;
+    let url = `/api/social/posts/${brandId}`;
     if (platform || status) {
       url += '?';
       if (platform) url += `platform=${platform}&`;
@@ -49,7 +49,7 @@ export const socialMediaService = {
   },
 
   updatePostStatus: async (postId: string, status: string) => {
-    const response = await axiosInstance.put(`/social/posts/${postId}/status`, { status });
+    const response = await axiosInstance.put(`/api/social/posts/${postId}/status`, { status });
     return response.data;
   },
 };

@@ -28,52 +28,52 @@ axiosInstance.interceptors.request.use(
 
 export const analyticsService = {
   getDashboardStats: async () => {
-    const response = await axiosInstance.get('/analytics/dashboard');
+    const response = await axiosInstance.get('/api/analytics/dashboard');
     return response.data;
   },
 
   getContentPerformance: async (period = '30d') => {
-    const response = await axiosInstance.get(`/analytics/content?period=${period}`);
+    const response = await axiosInstance.get(`/api/analytics/content?period=${period}`);
     return response.data;
   },
 
   getSocialPerformance: async (period = '30d') => {
-    const response = await axiosInstance.get(`/analytics/social?period=${period}`);
+    const response = await axiosInstance.get(`/api/analytics/social?period=${period}`);
     return response.data;
   },
 
   getBrandPerformance: async (brandId: string, period = '30d') => {
-    const response = await axiosInstance.get(`/analytics/brands/${brandId}?period=${period}`);
+    const response = await axiosInstance.get(`/api/analytics/brands/${brandId}?period=${period}`);
     return response.data;
   },
 
   getEngagementMetrics: async (period = '30d') => {
-    const response = await axiosInstance.get(`/analytics/engagement?period=${period}`);
+    const response = await axiosInstance.get(`/api/analytics/engagement?period=${period}`);
     return response.data;
   },
 
   getAudienceInsights: async () => {
-    const response = await axiosInstance.get('/analytics/audience');
+    const response = await axiosInstance.get('/api/analytics/audience');
     return response.data;
   },
 
   getContentTypePerformance: async () => {
-    const response = await axiosInstance.get('/analytics/content-types');
+    const response = await axiosInstance.get('/api/analytics/content-types');
     return response.data;
   },
 
   getPlatformComparison: async () => {
-    const response = await axiosInstance.get('/analytics/platforms');
+    const response = await axiosInstance.get('/api/analytics/platforms');
     return response.data;
   },
 
   getPerformanceByTime: async (metric = 'engagement', period = '30d') => {
-    const response = await axiosInstance.get(`/analytics/time-series?metric=${metric}&period=${period}`);
+    const response = await axiosInstance.get(`/api/analytics/time-series?metric=${metric}&period=${period}`);
     return response.data;
   },
 
   exportAnalyticsReport: async (params: any) => {
-    const response = await axiosInstance.post('/analytics/export', params, {
+    const response = await axiosInstance.post('/api/analytics/export', params, {
       responseType: 'blob',
     });
     return response.data;

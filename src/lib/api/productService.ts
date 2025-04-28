@@ -12,32 +12,32 @@ interface ProductData {
 
 export const productService = {
   createProduct: async (productData: ProductData) => {
-    const response = await axiosInstance.post('/products', productData);
+    const response = await axiosInstance.post('/api/products', productData);
     return response.data;
   },
 
   getProducts: async () => {
-    const response = await axiosInstance.get('/products');
+    const response = await axiosInstance.get('/api/products');
     return response.data;
   },
 
   getProductsByBrand: async (brandId: string) => {
-    const response = await axiosInstance.get(`/products/brand/${brandId}`);
+    const response = await axiosInstance.get(`/api/products/brand/${brandId}`);
     return response.data;
   },
 
   getProductById: async (productId: string) => {
-    const response = await axiosInstance.get(`/products/${productId}`);
+    const response = await axiosInstance.get(`/api/products/${productId}`);
     return response.data;
   },
 
   updateProduct: async (productId: string, productData: Partial<ProductData>) => {
-    const response = await axiosInstance.put(`/products/${productId}`, productData);
+    const response = await axiosInstance.put(`/api/products/${productId}`, productData);
     return response.data;
   },
 
   deleteProduct: async (productId: string) => {
-    const response = await axiosInstance.delete(`/products/${productId}`);
+    const response = await axiosInstance.delete(`/api/products/${productId}`);
     return response.data;
   },
 
@@ -47,7 +47,7 @@ export const productService = {
       formData.append('images', file);
     });
     
-    const response = await axiosInstance.post(`/products/${productId}/images`, formData, {
+    const response = await axiosInstance.post(`/api/products/${productId}/images`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },

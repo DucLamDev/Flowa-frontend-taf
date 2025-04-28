@@ -64,85 +64,85 @@ interface ThemeUpdateData {
 export const themeService = {
   // Lấy danh sách tất cả chủ đề
   getAllThemes: async (filters?: { brandId?: string; category?: string; isPublic?: boolean }) => {
-    const response = await axiosInstance.get('/themes', { params: filters });
+    const response = await axiosInstance.get('/api/themes', { params: filters });
     return response.data;
   },
 
   // Lấy chi tiết một chủ đề theo ID
   getThemeById: async (id: string) => {
-    const response = await axiosInstance.get(`/themes/${id}`);
+    const response = await axiosInstance.get(`/api/themes/${id}`);
     return response.data;
   },
 
   // Tạo chủ đề mới
   createTheme: async (data: ThemeCreateData) => {
-    const response = await axiosInstance.post('/themes', data);
+    const response = await axiosInstance.post('/api/themes', data);
     return response.data;
   },
 
   // Cập nhật chủ đề
   updateTheme: async (id: string, data: ThemeUpdateData) => {
-    const response = await axiosInstance.put(`/themes/${id}`, data);
+    const response = await axiosInstance.put(`/api/themes/${id}`, data);
     return response.data;
   },
 
   // Xóa chủ đề
   deleteTheme: async (id: string) => {
-    const response = await axiosInstance.delete(`/themes/${id}`);
+    const response = await axiosInstance.delete(`/api/themes/${id}`);
     return response.data;
   },
 
   // Lấy chủ đề mặc định
   getDefaultThemes: async () => {
-    const response = await axiosInstance.get('/themes/default');
+    const response = await axiosInstance.get('/api/themes/default');
     return response.data;
   },
 
   // Lấy chủ đề công khai
   getPublicThemes: async () => {
-    const response = await axiosInstance.get('/themes/public');
+    const response = await axiosInstance.get('/api/themes/public');
     return response.data;
   },
 
   // Lấy chủ đề theo thương hiệu
   getThemesByBrand: async (brandId: string) => {
-    const response = await axiosInstance.get(`/brands/${brandId}/themes`);
+    const response = await axiosInstance.get(`/api/brands/${brandId}/themes`);
     return response.data;
   },
 
   // Đặt chủ đề làm mặc định
   setThemeAsDefault: async (id: string) => {
-    const response = await axiosInstance.post(`/themes/${id}/default`);
+    const response = await axiosInstance.post(`/api/themes/${id}/default`);
     return response.data;
   },
 
   // Đặt chủ đề làm công khai/riêng tư
   setThemeVisibility: async (id: string, isPublic: boolean) => {
-    const response = await axiosInstance.patch(`/themes/${id}/visibility`, { isPublic });
+    const response = await axiosInstance.patch(`/api/themes/${id}/visibility`, { isPublic });
     return response.data;
   },
 
   // Sao chép chủ đề
   cloneTheme: async (id: string, newName: string) => {
-    const response = await axiosInstance.post(`/themes/${id}/clone`, { name: newName });
+    const response = await axiosInstance.post(`/api/themes/${id}/clone`, { name: newName });
     return response.data;
   },
 
   // Lấy danh sách danh mục chủ đề
   getThemeCategories: async () => {
-    const response = await axiosInstance.get('/themes/categories');
+    const response = await axiosInstance.get('/api/themes/categories');
     return response.data;
   },
 
   // Lấy danh sách tone chủ đề
   getThemeTones: async () => {
-    const response = await axiosInstance.get('/themes/tones');
+    const response = await axiosInstance.get('/api/themes/tones');
     return response.data;
   },
 
   // Tìm kiếm chủ đề
   searchThemes: async (query: string) => {
-    const response = await axiosInstance.get('/themes/search', {
+    const response = await axiosInstance.get('/api/themes/search', {
       params: { query },
     });
     return response.data;
@@ -150,7 +150,7 @@ export const themeService = {
 
   // Gợi ý chủ đề dựa trên nội dung
   suggestThemes: async (content: string) => {
-    const response = await axiosInstance.post('/themes/suggest', { content });
+    const response = await axiosInstance.post('/api/themes/suggest', { content });
     return response.data;
   }
 };

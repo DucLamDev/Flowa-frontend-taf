@@ -35,7 +35,7 @@ axiosInstance.interceptors.response.use(
       // Redirect to login page or refresh token
       if (typeof window !== 'undefined') {
         localStorage.removeItem('flowa_token');
-        window.location.href = '/auth/login';
+        window.location.href = '/api/auth/login';
       }
     }
     return Promise.reject(error);

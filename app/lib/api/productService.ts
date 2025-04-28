@@ -79,31 +79,31 @@ interface ProductUpdateData {
 export const productService = {
   // Lấy danh sách tất cả sản phẩm
   getAllProducts: async (filters?: { brandId?: string; category?: string; status?: string }) => {
-    const response = await axiosInstance.get('/products', { params: filters });
+    const response = await axiosInstance.get('/api/products', { params: filters });
     return response.data;
   },
 
   // Lấy chi tiết một sản phẩm theo ID
   getProductById: async (id: string) => {
-    const response = await axiosInstance.get(`/products/${id}`);
+    const response = await axiosInstance.get(`/api/products/${id}`);
     return response.data;
   },
 
   // Tạo sản phẩm mới
   createProduct: async (data: ProductCreateData) => {
-    const response = await axiosInstance.post('/products', data);
+    const response = await axiosInstance.post('/api/products', data);
     return response.data;
   },
 
   // Cập nhật sản phẩm
   updateProduct: async (id: string, data: ProductUpdateData) => {
-    const response = await axiosInstance.put(`/products/${id}`, data);
+    const response = await axiosInstance.put(`/api/products/${id}`, data);
     return response.data;
   },
 
   // Xóa sản phẩm
   deleteProduct: async (id: string) => {
-    const response = await axiosInstance.delete(`/products/${id}`);
+    const response = await axiosInstance.delete(`/api/products/${id}`);
     return response.data;
   },
 
@@ -112,7 +112,7 @@ export const productService = {
     const formData = new FormData();
     formData.append('image', imageFile);
     
-    const response = await axiosInstance.post(`/products/${id}/images`, formData, {
+    const response = await axiosInstance.post(`/api/products/${id}/images`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -122,7 +122,7 @@ export const productService = {
 
   // Xóa hình ảnh sản phẩm
   deleteProductImage: async (id: string, imageUrl: string) => {
-    const response = await axiosInstance.delete(`/products/${id}/images`, {
+    const response = await axiosInstance.delete(`/api/products/${id}/images`, {
       data: { imageUrl },
     });
     return response.data;
@@ -130,19 +130,19 @@ export const productService = {
 
   // Lấy danh sách danh mục sản phẩm
   getProductCategories: async () => {
-    const response = await axiosInstance.get('/products/categories');
+    const response = await axiosInstance.get('/api/products/categories');
     return response.data;
   },
 
   // Lấy sản phẩm theo thương hiệu
   getProductsByBrand: async (brandId: string) => {
-    const response = await axiosInstance.get(`/brands/${brandId}/products`);
+    const response = await axiosInstance.get(`/api/brands/${brandId}/products`);
     return response.data;
   },
 
   // Tìm kiếm sản phẩm
   searchProducts: async (query: string) => {
-    const response = await axiosInstance.get('/products/search', {
+    const response = await axiosInstance.get('/api/products/search', {
       params: { query },
     });
     return response.data;
@@ -150,13 +150,13 @@ export const productService = {
 
   // Cập nhật trạng thái sản phẩm
   updateProductStatus: async (id: string, status: 'active' | 'inactive' | 'draft') => {
-    const response = await axiosInstance.patch(`/products/${id}/status`, { status });
+    const response = await axiosInstance.patch(`/api/products/${id}/status`, { status });
     return response.data;
   },
 
   // Cập nhật tồn kho sản phẩm
   updateProductInventory: async (id: string, quantity: number) => {
-    const response = await axiosInstance.patch(`/products/${id}/inventory`, { quantity });
+    const response = await axiosInstance.patch(`/api/products/${id}/inventory`, { quantity });
     return response.data;
   }
 };

@@ -27,27 +27,27 @@ interface ApiKeyData {
 
 export const authService = {
   register: async (data: RegisterData) => {
-    const response = await axiosInstance.post('/users/register', data);
+    const response = await axiosInstance.post('/api/users/register', data);
     return response.data;
   },
 
   login: async (data: LoginData) => {
-    const response = await axiosInstance.post('/users/login', data);
+    const response = await axiosInstance.post('/api/users/login', data);
     return response.data;
   },
 
   getProfile: async () => {
-    const response = await axiosInstance.get('/users/profile');
+    const response = await axiosInstance.get('/api/users/profile');
     return response.data;
   },
 
   updateProfile: async (data: UpdateProfileData) => {
-    const response = await axiosInstance.put('/users/profile', data);
+    const response = await axiosInstance.put('/api/users/profile', data);
     return response.data;
   },
 
   manageApiKeys: async (apiKeys: ApiKeyData[]) => {
-    const response = await axiosInstance.put('/users/api-keys', { apiKeys });
+    const response = await axiosInstance.put('/api/users/api-keys', { apiKeys });
     return response.data;
   },
 };

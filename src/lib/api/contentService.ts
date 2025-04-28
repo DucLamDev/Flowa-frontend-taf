@@ -31,22 +31,22 @@ interface ImageGenerationData {
 
 export const contentService = {
   generateContent: async (data: ContentGenerationData) => {
-    const response = await axiosInstance.post('/content/generate', data);
+    const response = await axiosInstance.post('/api/content/generate', data);
     return response.data;
   },
 
   optimizeContent: async (data: ContentOptimizationData) => {
-    const response = await axiosInstance.post('/content/optimize', data);
+    const response = await axiosInstance.post('/api/content/optimize', data);
     return response.data;
   },
 
   analyzeKeywords: async (data: KeywordAnalysisData) => {
-    const response = await axiosInstance.post('/content/analyze-keywords', data);
+    const response = await axiosInstance.post('/api/content/analyze-keywords', data);
     return response.data;
   },
 
   generateImage: async (data: ImageGenerationData) => {
-    const response = await axiosInstance.post('/content/generate-image', data);
+    const response = await axiosInstance.post('/api/content/generate-image', data);
     return response.data;
   },
 };

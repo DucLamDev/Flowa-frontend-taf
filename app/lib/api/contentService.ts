@@ -43,47 +43,47 @@ interface ContentOptimizationParams {
 
 export const contentService = {
   getThemes: async (brandId: string) => {
-    const response = await axiosInstance.get(`/content/themes?brandId=${brandId}`);
+    const response = await axiosInstance.get(`/api/content/themes?brandId=${brandId}`);
     return response.data;
   },
 
   getAllThemes: async () => {
-    const response = await axiosInstance.get('/content/themes');
+    const response = await axiosInstance.get('/api/content/themes');
     return response.data;
   },
 
   createTheme: async (themeData: any) => {
-    const response = await axiosInstance.post('/content/themes', themeData);
+    const response = await axiosInstance.post('/api/content/themes', themeData);
     return response.data;
   },
 
   generateContent: async (params: ContentGenerationParams) => {
-    const response = await axiosInstance.post('/content/generate', params);
+    const response = await axiosInstance.post('/api/content/generate', params);
     return response.data;
   },
 
   optimizeContent: async (params: ContentOptimizationParams) => {
-    const response = await axiosInstance.post('/content/optimize', params);
+    const response = await axiosInstance.post('/api/content/optimize', params);
     return response.data;
   },
 
   getUserContent: async (page = 1, limit = 10) => {
-    const response = await axiosInstance.get(`/content?page=${page}&limit=${limit}`);
+    const response = await axiosInstance.get(`/api/content?page=${page}&limit=${limit}`);
     return response.data;
   },
 
   getContentById: async (contentId: string) => {
-    const response = await axiosInstance.get(`/content/${contentId}`);
+    const response = await axiosInstance.get(`/api/content/${contentId}`);
     return response.data;
   },
 
   deleteContent: async (contentId: string) => {
-    const response = await axiosInstance.delete(`/content/${contentId}`);
+    const response = await axiosInstance.delete(`/api/content/${contentId}`);
     return response.data;
   },
 
   saveContent: async (contentData: any) => {
-    const response = await axiosInstance.post('/content/save', contentData);
+    const response = await axiosInstance.post('/api/content/save', contentData);
     return response.data;
   },
 };

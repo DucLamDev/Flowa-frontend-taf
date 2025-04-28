@@ -13,32 +13,32 @@ interface ThemeData {
 
 export const themeService = {
   createTheme: async (themeData: ThemeData) => {
-    const response = await axiosInstance.post('/themes', themeData);
+    const response = await axiosInstance.post('/api/themes', themeData);
     return response.data;
   },
 
   getThemes: async () => {
-    const response = await axiosInstance.get('/themes');
+    const response = await axiosInstance.get('/api/themes');
     return response.data;
   },
 
   getThemesByBrand: async (brandId: string) => {
-    const response = await axiosInstance.get(`/themes/brand/${brandId}`);
+    const response = await axiosInstance.get(`/api/themes/brand/${brandId}`);
     return response.data;
   },
 
   getThemeById: async (themeId: string) => {
-    const response = await axiosInstance.get(`/themes/${themeId}`);
+    const response = await axiosInstance.get(`/api/themes/${themeId}`);
     return response.data;
   },
 
   updateTheme: async (themeId: string, themeData: Partial<ThemeData>) => {
-    const response = await axiosInstance.put(`/themes/${themeId}`, themeData);
+    const response = await axiosInstance.put(`/api/themes/${themeId}`, themeData);
     return response.data;
   },
 
   deleteTheme: async (themeId: string) => {
-    const response = await axiosInstance.delete(`/themes/${themeId}`);
+    const response = await axiosInstance.delete(`/api/themes/${themeId}`);
     return response.data;
   },
 };

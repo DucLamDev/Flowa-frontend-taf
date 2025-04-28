@@ -46,63 +46,63 @@ interface SocialPost {
 export const socialMediaService = {
   // Social Accounts
   getAccounts: async () => {
-    const response = await axiosInstance.get('/social/accounts');
+    const response = await axiosInstance.get('/api/social/accounts');
     return response.data;
   },
 
   addAccount: async (accountData: SocialAccount) => {
-    const response = await axiosInstance.post('/social/accounts', accountData);
+    const response = await axiosInstance.post('/api/social/accounts', accountData);
     return response.data;
   },
 
   connectAccount: async (accountId: string, connectionData: any) => {
-    const response = await axiosInstance.post(`/social/accounts/${accountId}/connect`, connectionData);
+    const response = await axiosInstance.post(`/api/social/accounts/${accountId}/connect`, connectionData);
     return response.data;
   },
 
   disconnectAccount: async (accountId: string) => {
-    const response = await axiosInstance.post(`/social/accounts/${accountId}/disconnect`);
+    const response = await axiosInstance.post(`/api/social/accounts/${accountId}/disconnect`);
     return response.data;
   },
 
   deleteAccount: async (accountId: string) => {
-    const response = await axiosInstance.delete(`/social/accounts/${accountId}`);
+    const response = await axiosInstance.delete(`/api/social/accounts/${accountId}`);
     return response.data;
   },
 
   // Social Posts
   getPosts: async (filters = {}) => {
-    const response = await axiosInstance.get('/social/posts', { params: filters });
+    const response = await axiosInstance.get('/api/social/posts', { params: filters });
     return response.data;
   },
 
   getPostById: async (postId: string) => {
-    const response = await axiosInstance.get(`/social/posts/${postId}`);
+    const response = await axiosInstance.get(`/api/social/posts/${postId}`);
     return response.data;
   },
 
   createPost: async (postData: SocialPost) => {
-    const response = await axiosInstance.post('/social/posts', postData);
+    const response = await axiosInstance.post('/api/social/posts', postData);
     return response.data;
   },
 
   updatePost: async (postId: string, postData: Partial<SocialPost>) => {
-    const response = await axiosInstance.put(`/social/posts/${postId}`, postData);
+    const response = await axiosInstance.put(`/api/social/posts/${postId}`, postData);
     return response.data;
   },
 
   deletePost: async (postId: string) => {
-    const response = await axiosInstance.delete(`/social/posts/${postId}`);
+    const response = await axiosInstance.delete(`/api/social/posts/${postId}`);
     return response.data;
   },
 
   schedulePost: async (postId: string, scheduledDate: string) => {
-    const response = await axiosInstance.post(`/social/posts/${postId}/schedule`, { scheduledDate });
+    const response = await axiosInstance.post(`/api/social/posts/${postId}/schedule`, { scheduledDate });
     return response.data;
   },
 
   publishPost: async (postId: string) => {
-    const response = await axiosInstance.post(`/social/posts/${postId}/publish`);
+    const response = await axiosInstance.post(`/api/social/posts/${postId}/publish`);
     return response.data;
   },
 
@@ -111,7 +111,7 @@ export const socialMediaService = {
     const formData = new FormData();
     formData.append('media', file);
     
-    const response = await axiosInstance.post('/social/media', formData, {
+    const response = await axiosInstance.post('/api/social/media', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -121,12 +121,12 @@ export const socialMediaService = {
 
   // Analytics
   getPostAnalytics: async (postId: string) => {
-    const response = await axiosInstance.get(`/social/posts/${postId}/analytics`);
+    const response = await axiosInstance.get(`/api/social/posts/${postId}/analytics`);
     return response.data;
   },
 
   getAccountAnalytics: async (accountId: string, period = '30d') => {
-    const response = await axiosInstance.get(`/social/accounts/${accountId}/analytics?period=${period}`);
+    const response = await axiosInstance.get(`/api/social/accounts/${accountId}/analytics?period=${period}`);
     return response.data;
   },
 };
